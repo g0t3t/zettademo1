@@ -64,7 +64,7 @@ python -m zetta1venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 python app.py
-
+```
 
 Access at http://localhost:5000
 
