@@ -19,6 +19,7 @@ This is a simple Python Flask application that serves a web page displaying **Lo
 
 ## 📁 Project Structure
 
+```bash
 ZETTADEMO1/
 ├── .github/workflows/ # GitHub Actions workflow
 │ └── build_and_deploy.yml
@@ -40,6 +41,7 @@ ZETTADEMO1/
 │ ├── cert-manager.yaml # Let's Encrypt cert-manager
 │ └── ingress.yaml # Ingress NGINX
 └── README.md
+```
 
 ---
 
@@ -72,19 +74,23 @@ Access at http://localhost:5000
 
 ### 🐳 Docker
 
+```bash
 docker build -t zettademo1-app .
 docker run -p 5000:5000 zettademo1-app
+```
 
 ---
 
 ### ☁️ Infrastructure Provisioning
 
+```bash
 az login
 cd infra/tf
 terraform init
 terraform apply
 cd ..
 kubectl apply -f ingress.yaml cert-manger.yaml argocd.yaml
+```
 
 This creates the Azure infrastructure including AKS, Ingress, Cert-Manger and ArgoCD.
 
@@ -92,8 +98,10 @@ This creates the Azure infrastructure including AKS, Ingress, Cert-Manger and Ar
 
 ### ☸️ Kubernetes Deployment
 
+```bash
 cd app/k8s
 kubectl apply -f manifest.yaml
+```
 
 This will manually run the app in the k8s cluster.
 
@@ -101,7 +109,9 @@ This will manually run the app in the k8s cluster.
 
 ### 🤖 GitOps with Argo CD
 
+```bash
 kubectl apply -f app/k8s/applicationset.yaml
+```
 
 This setups the app and connects the ArgoCD to the repo so that it is ready for deploying.
 
