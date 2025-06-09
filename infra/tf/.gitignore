@@ -13,3 +13,5 @@ secrets.tfvars
 *.credentials
 .idea/
 .vscode/
+.terraform
+.gitignore
